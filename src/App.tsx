@@ -9,6 +9,8 @@ import { Home } from "./pages/Home";
 import { Categories } from "./pages/Categories";
 import { ProductDetail } from "./pages/ProductDetail";
 import { Cart } from "./pages/Cart";
+import { About } from "./pages/About";
+import { Contact } from "./pages/Contact";
 import { Admin } from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -24,10 +26,12 @@ const App = () => (
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/categories/:categoryId" element={<Categories />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/categorias" element={<Categories />} />
+            <Route path="/categorias/:categoryId" element={<Categories />} />
+            <Route path="/produto/:id" element={<ProductDetail />} />
+            <Route path="/carrinho" element={<Cart />} />
+            <Route path="/sobre" element={<About />} />
+            <Route path="/contato" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

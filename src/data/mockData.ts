@@ -2,122 +2,122 @@ import { Product, Category } from '@/types';
 
 export const categories: Category[] = [
   {
-    id: 'electronics',
-    name: 'Electronics',
-    description: 'Latest tech gadgets and devices',
+    id: 'eletrônicos',
+    name: 'Eletrônicos',
+    description: 'Gadgets e dispositivos tecnológicos mais recentes',
     image: '/placeholder.svg'
   },
   {
-    id: 'fashion',
-    name: 'Fashion',
-    description: 'Trendy clothing and accessories',
+    id: 'moda',
+    name: 'Moda',
+    description: 'Roupas e acessórios da moda',
     image: '/placeholder.svg'
   },
   {
-    id: 'home-garden',
-    name: 'Home & Garden',
-    description: 'Beautiful items for your living space',
+    id: 'casa-jardim',
+    name: 'Casa e Jardim',
+    description: 'Itens lindos para seu espaço',
     image: '/placeholder.svg'
   }
 ];
 
 export const products: Product[] = [
-  // Electronics
+  // Eletrônicos
   {
     id: '1',
-    name: 'Premium Smartphone',
-    description: 'Latest flagship smartphone with advanced camera',
-    price: 899,
-    originalPrice: 999,
+    name: 'Smartphone Premium',
+    description: 'Smartphone flagship mais recente com câmera avançada',
+    price: 2699,
+    originalPrice: 2999,
     image: '/placeholder.svg',
-    category: 'electronics',
+    category: 'eletrônicos',
     stock: 15,
     featured: true,
     discounted: true
   },
   {
     id: '2',
-    name: 'Wireless Headphones',
-    description: 'Noise-canceling wireless headphones',
-    price: 299,
+    name: 'Fones Sem Fio',
+    description: 'Fones sem fio com cancelamento de ruído',
+    price: 899,
     image: '/placeholder.svg',
-    category: 'electronics',
+    category: 'eletrônicos',
     stock: 25,
     featured: true
   },
   {
     id: '3',
-    name: 'Smart Watch',
-    description: 'Fitness tracking smartwatch with GPS',
-    price: 399,
-    originalPrice: 449,
+    name: 'Smartwatch',
+    description: 'Smartwatch fitness com GPS',
+    price: 1199,
+    originalPrice: 1349,
     image: '/placeholder.svg',
-    category: 'electronics',
+    category: 'eletrônicos',
     stock: 8,
     discounted: true
   },
   
-  // Fashion
+  // Moda
   {
     id: '4',
-    name: 'Cotton T-Shirt',
-    description: 'Comfortable premium cotton t-shirt',
-    price: 29,
+    name: 'Camiseta de Algodão',
+    description: 'Camiseta confortável de algodão premium',
+    price: 89,
     image: '/placeholder.svg',
-    category: 'fashion',
+    category: 'moda',
     stock: 50,
     featured: true
   },
   {
     id: '5',
-    name: 'Denim Jacket',
-    description: 'Classic denim jacket for all occasions',
-    price: 89,
-    originalPrice: 120,
+    name: 'Jaqueta Jeans',
+    description: 'Jaqueta jeans clássica para todas as ocasiões',
+    price: 269,
+    originalPrice: 360,
     image: '/placeholder.svg',
-    category: 'fashion',
+    category: 'moda',
     stock: 12,
     discounted: true
   },
   {
     id: '6',
-    name: 'Sneakers',
-    description: 'Comfortable running sneakers',
-    price: 149,
+    name: 'Tênis Esportivo',
+    description: 'Tênis confortável para corrida',
+    price: 449,
     image: '/placeholder.svg',
-    category: 'fashion',
+    category: 'moda',
     stock: 20
   },
   
-  // Home & Garden
+  // Casa e Jardim
   {
     id: '7',
-    name: 'Ceramic Plant Pot',
-    description: 'Beautiful handcrafted ceramic pot',
-    price: 45,
+    name: 'Vaso de Cerâmica',
+    description: 'Lindo vaso de cerâmica artesanal',
+    price: 135,
     image: '/placeholder.svg',
-    category: 'home-garden',
+    category: 'casa-jardim',
     stock: 30,
     featured: true
   },
   {
     id: '8',
-    name: 'LED Desk Lamp',
-    description: 'Adjustable LED desk lamp with USB charging',
-    price: 79,
-    originalPrice: 99,
+    name: 'Luminária LED',
+    description: 'Luminária LED ajustável com carregamento USB',
+    price: 237,
+    originalPrice: 297,
     image: '/placeholder.svg',
-    category: 'home-garden',
+    category: 'casa-jardim',
     stock: 18,
     discounted: true
   },
   {
     id: '9',
-    name: 'Throw Pillow',
-    description: 'Soft decorative throw pillow',
-    price: 25,
+    name: 'Almofada Decorativa',
+    description: 'Almofada decorativa macia',
+    price: 75,
     image: '/placeholder.svg',
-    category: 'home-garden',
+    category: 'casa-jardim',
     stock: 45
   }
 ];

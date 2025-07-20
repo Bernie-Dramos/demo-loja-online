@@ -34,24 +34,24 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Discover
+            Descubra
             <span className="block bg-gradient-to-r from-yellow-400 to-pink-400 bg-clip-text text-transparent">
-              Amazing Products
+              Produtos Incríveis
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Shop the latest trends with unbeatable prices. Quality products, fast delivery, and exceptional service.
+            Compre as últimas tendências com preços imbatíveis. Produtos de qualidade, entrega rápida e atendimento excepcional.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               variant="hero" 
               size="lg"
-              onClick={() => navigate('/categories')}
+              onClick={() => navigate('/categorias')}
               className="text-lg px-8 py-6 animate-scale-in"
             >
-              Shop Now
+              Comprar Agora
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             
@@ -60,9 +60,9 @@ export const HeroSection: React.FC = () => {
               size="lg"
               className="text-lg px-8 py-6 bg-white/10 border-white/30 text-white hover:bg-white/20 animate-scale-in"
               style={{ animationDelay: '0.2s' }}
-              onClick={() => navigate('/about')}
+              onClick={() => navigate('/sobre')}
             >
-              Learn More
+              Saiba Mais
             </Button>
           </div>
         </div>
@@ -71,15 +71,15 @@ export const HeroSection: React.FC = () => {
         <div className="grid grid-cols-3 gap-8 mt-16 animate-slide-up">
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-white">1000+</div>
-            <div className="text-white/80">Products</div>
+            <div className="text-white/80">Produtos</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-white">500+</div>
-            <div className="text-white/80">Happy Customers</div>
+            <div className="text-white/80">Clientes Satisfeitos</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-white">24/7</div>
-            <div className="text-white/80">Support</div>
+            <div className="text-white/80">Suporte</div>
           </div>
         </div>
       </div>

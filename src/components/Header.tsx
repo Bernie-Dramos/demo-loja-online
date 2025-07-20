@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
             <Input 
-              placeholder="Search products..." 
+              placeholder="Buscar produtos..." 
               className="pl-10 bg-muted/50"
             />
           </div>
@@ -39,14 +39,14 @@ export const Header: React.FC = () => {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Button variant="ghost" onClick={() => navigate('/categories')}>
-            Categories
+          <Button variant="ghost" onClick={() => navigate('/categorias')}>
+            Categorias
           </Button>
-          <Button variant="ghost" onClick={() => navigate('/about')}>
-            About
+          <Button variant="ghost" onClick={() => navigate('/sobre')}>
+            Sobre
           </Button>
-          <Button variant="ghost" onClick={() => navigate('/contact')}>
-            Contact
+          <Button variant="ghost" onClick={() => navigate('/contato')}>
+            Contato
           </Button>
         </nav>
 
@@ -72,7 +72,7 @@ export const Header: React.FC = () => {
             variant="ghost"
             size="icon"
             className="relative"
-            onClick={() => navigate('/cart')}
+            onClick={() => navigate('/carrinho')}
           >
             <ShoppingCart className="h-5 w-5" />
             {cartItemsCount > 0 && (

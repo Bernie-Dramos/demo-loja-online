@@ -11,11 +11,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { products, categories } from '@/data/mockData';
 import { Product } from '@/types';
+import { AdminLogin } from '@/components/AdminLogin';
 
 export const Admin: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isProductDialogOpen, setIsProductDialogOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  
   const [newProduct, setNewProduct] = useState({
     name: '',
     description: '',
@@ -27,6 +28,10 @@ export const Admin: React.FC = () => {
     featured: false,
     discounted: false
   });
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={() => setIsAuthenticated(true)} />;
+  }
 
   const resetForm = () => {
     setNewProduct({
@@ -44,8 +49,8 @@ export const Admin: React.FC = () => {
   };
 
   const handleSaveProduct = () => {
-    // In a real app, this would make an API call
-    console.log('Saving product:', newProduct);
+    // Em uma aplicação real, isso faria uma chamada para API
+    console.log('Salvando produto:', newProduct);
     setIsProductDialogOpen(false);
     resetForm();
   };
@@ -67,32 +72,32 @@ export const Admin: React.FC = () => {
   };
 
   const handleDeleteProduct = (productId: string) => {
-    // In a real app, this would make an API call
-    console.log('Deleting product:', productId);
+    // Em uma aplicação real, isso faria uma chamada para API
+    console.log('Excluindo produto:', productId);
   };
 
   const stats = [
     {
-      title: 'Total Products',
+      title: 'Total de Produtos',
       value: products.length,
       icon: Package,
       change: '+12%'
     },
     {
-      title: 'Total Revenue',
-      value: '$12,345',
+      title: 'Receita Total',
+      value: 'R$ 45.678',
       icon: DollarSign,
       change: '+8%'
     },
     {
-      title: 'Sales This Month',
+      title: 'Vendas Este Mês',
       value: '234',
       icon: TrendingUp,
       change: '+15%'
     },
     {
-      title: 'Active Customers',
-      value: '1,234',
+      title: 'Clientes Ativos',
+      value: '1.234',
       icon: Users,
       change: '+3%'
     }
@@ -102,8 +107,8 @@ export const Admin: React.FC = () => {
     <div className="min-h-screen bg-background">
       <div className="bg-gradient-hero text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-4">Admin Dashboard</h1>
-          <p className="text-xl text-white/90">Manage your products and inventory</p>
+          <h1 className="text-4xl font-bold mb-4">Painel Administrativo</h1>
+          <p className="text-xl text-white/90">Gerencie seus produtos e estoque</p>
         </div>
       </div>
 
@@ -119,7 +124,7 @@ export const Admin: React.FC = () => {
               <CardContent>
                 <div className="text-2xl font-bold">{stat.value}</div>
                 <p className="text-xs text-success">
-                  {stat.change} from last month
+                  {stat.change} do mês passado
                 </p>
               </CardContent>
             </Card>
@@ -130,24 +135,24 @@ export const Admin: React.FC = () => {
         <Card>
           <CardHeader>
             <div className="flex justify-between items-center">
-              <CardTitle>Product Management</CardTitle>
+              <CardTitle>Gerenciamento de Produtos</CardTitle>
               <Dialog open={isProductDialogOpen} onOpenChange={setIsProductDialogOpen}>
                 <DialogTrigger asChild>
                   <Button onClick={resetForm}>
                     <Plus className="mr-2 h-4 w-4" />
-                    Add Product
+                    Adicionar Produto
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-2xl">
                   <DialogHeader>
                     <DialogTitle>
-                      {editingProduct ? 'Edit Product' : 'Add New Product'}
+                      {editingProduct ? 'Editar Produto' : 'Adicionar Novo Produto'}
                     </DialogTitle>
                   </DialogHeader>
                   
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Product Name</Label>
+                      <Label htmlFor="name">Nome do Produto</Label>
                       <Input
                         id="name"
                         value={newProduct.name}
@@ -156,13 +161,13 @@ export const Admin: React.FC = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="category">Category</Label>
+                      <Label htmlFor="category">Categoria</Label>
                       <Select 
                         value={newProduct.category} 
                         onValueChange={(value) => setNewProduct({...newProduct, category: value})}
                       >
                         <SelectTrigger>
-                          <SelectValue placeholder="Select category" />
+                          <SelectValue placeholder="Selecionar categoria" />
                         </SelectTrigger>
                         <SelectContent>
                           {categories.map((category) => (
@@ -175,7 +180,7 @@ export const Admin: React.FC = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="price">Price ($)</Label>
+                      <Label htmlFor="price">Preço (R$)</Label>
                       <Input
                         id="price"
                         type="number"
@@ -185,7 +190,7 @@ export const Admin: React.FC = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="originalPrice">Original Price ($)</Label>
+                      <Label htmlFor="originalPrice">Preço Original (R$)</Label>
                       <Input
                         id="originalPrice"
                         type="number"
@@ -195,7 +200,7 @@ export const Admin: React.FC = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="stock">Stock Quantity</Label>
+                      <Label htmlFor="stock">Quantidade em Estoque</Label>
                       <Input
                         id="stock"
                         type="number"
@@ -205,7 +210,7 @@ export const Admin: React.FC = () => {
                     </div>
                     
                     <div className="space-y-2">
-                      <Label htmlFor="image">Image URL</Label>
+                      <Label htmlFor="image">URL da Imagem</Label>
                       <Input
                         id="image"
                         value={newProduct.image}
@@ -214,7 +219,7 @@ export const Admin: React.FC = () => {
                     </div>
                     
                     <div className="col-span-2 space-y-2">
-                      <Label htmlFor="description">Description</Label>
+                      <Label htmlFor="description">Descrição</Label>
                       <Textarea
                         id="description"
                         value={newProduct.description}
@@ -229,7 +234,7 @@ export const Admin: React.FC = () => {
                           checked={newProduct.featured}
                           onChange={(e) => setNewProduct({...newProduct, featured: e.target.checked})}
                         />
-                        <span>Featured Product</span>
+                        <span>Produto em Destaque</span>
                       </label>
                       
                       <label className="flex items-center space-x-2">
@@ -238,17 +243,17 @@ export const Admin: React.FC = () => {
                           checked={newProduct.discounted}
                           onChange={(e) => setNewProduct({...newProduct, discounted: e.target.checked})}
                         />
-                        <span>On Sale</span>
+                        <span>Em Promoção</span>
                       </label>
                     </div>
                   </div>
                   
                   <div className="flex justify-end gap-2 mt-6">
                     <Button variant="outline" onClick={() => setIsProductDialogOpen(false)}>
-                      Cancel
+                      Cancelar
                     </Button>
                     <Button onClick={handleSaveProduct}>
-                      {editingProduct ? 'Update Product' : 'Add Product'}
+                      {editingProduct ? 'Atualizar Produto' : 'Adicionar Produto'}
                     </Button>
                   </div>
                 </DialogContent>
@@ -260,12 +265,12 @@ export const Admin: React.FC = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Product</TableHead>
-                  <TableHead>Category</TableHead>
-                  <TableHead>Price</TableHead>
-                  <TableHead>Stock</TableHead>
+                  <TableHead>Produto</TableHead>
+                  <TableHead>Categoria</TableHead>
+                  <TableHead>Preço</TableHead>
+                  <TableHead>Estoque</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Actions</TableHead>
+                  <TableHead>Ações</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -293,10 +298,10 @@ export const Admin: React.FC = () => {
                     </TableCell>
                     <TableCell>
                       <div>
-                        <span className="font-medium">${product.price}</span>
+                        <span className="font-medium">R$ {product.price}</span>
                         {product.originalPrice && (
                           <div className="text-sm text-muted-foreground line-through">
-                            ${product.originalPrice}
+                            R$ {product.originalPrice}
                           </div>
                         )}
                       </div>
@@ -305,13 +310,13 @@ export const Admin: React.FC = () => {
                       <Badge 
                         variant={product.stock > 10 ? "default" : product.stock > 0 ? "outline" : "destructive"}
                       >
-                        {product.stock} units
+                        {product.stock} unidades
                       </Badge>
                     </TableCell>
                     <TableCell>
                       <div className="flex gap-1">
-                        {product.featured && <Badge className="text-xs">Featured</Badge>}
-                        {product.discounted && <Badge variant="destructive" className="text-xs">Sale</Badge>}
+                        {product.featured && <Badge className="text-xs">Destaque</Badge>}
+                        {product.discounted && <Badge variant="destructive" className="text-xs">Promoção</Badge>}
                       </div>
                     </TableCell>
                     <TableCell>
